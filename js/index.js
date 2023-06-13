@@ -22,7 +22,7 @@ footer.appendChild(copyright);
 const skills = ["JavaScript", "HTML", "CSS", "React"];
 
 // Using "DOM Selection", select the #skills section by id and store it in a variable named skillsSection
-const skillsSection = document.getElementById("#skills");
+const skillsSection = document.getElementById("skills");
 
 // Using "DOM Selection", query the skillsSection (instead of the entire document) to find the <ul> element and store it in a variable named skillsList
 const skillsList = skillsSection.querySelector("ul");
