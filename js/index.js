@@ -40,3 +40,26 @@ for (let i = 0; i < skills.length; i++) {
 
 // Save and refresh your browser
 // You should see your list of skills beneath the "Skills" heading
+
+// Handle Message Form Submit
+// Using "DOM Selection", select the "leave_message" form by name attribute and store it in a variable named messageForm
+const messageForm = document.querySelector('form[name="leave_message"]');
+
+// Add an event listener to the messageForm element that handles the "submit" event
+messageForm.addEventListener("submit", function (event) {
+  // Inside the callback function, add a new line to prevent the default refreshing behavior of the "submit" event
+  event.preventDefault();
+
+  // Inside the callback function for your event listener, create a new variable for each of the three form fields and retrieve the value from the event
+  const usersName = event.target.usersName.value;
+  const usersEmail = event.target.usersEmail.value;
+  const usersMessage = event.target.usersMessage.value;
+
+  //   Inside the callback function for your event listener, add a console.log statement to log the three variables
+  console.log("Name:", usersName);
+  console.log("Email:", usersEmail);
+  console.log("Message:", usersMessage);
+
+  // Inside the callback function, add a new line of code to clear the form
+  messageForm.reset();
+});
