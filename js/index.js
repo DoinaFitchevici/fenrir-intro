@@ -60,6 +60,49 @@ messageForm.addEventListener("submit", function (event) {
   console.log("Email:", usersEmail);
   console.log("Message:", usersMessage);
 
+  // Display Messages in List
+  // Using "DOM Selection", select the #messages section by id and store it in a variable named messageSection
+  const messageSection = document.getElementById("messages");
+
+  // Using "DOM Selection", query the messageSection (instead of the entire document) to find the <ul> element and store it in a variable named messageList
+  const messageList = messageSection.querySelector("ul");
+
+  // Create a new list item (li) element and store it in a variable named newMessage
+  const newMessage = document.createElement("li");
+
+  // Set the inner HTML of your newMessage element with the following information:
+
+  /* <a> element that displays the "name" and links to the "email" (hint: use the mailto: prefix) 
+  <span> element that displays the "message" */
+  newMessage.innerHTML = `
+  <a href="mailto: ${usersEmail}">${usersName}</a>
+  <span>wrote: ${usersMessage}</span>
+  `;
+
+  // Create a new <button> element and store it in a variable named removeButton
+  const removeButton = document.createElement("button");
+
+  // Set the inner text to "remove"
+  removeButton.innerText = "remove";
+
+  // Set the type attribute to "button"
+  removeButton.type = "button";
+
+  // Add an event listener to the removeButton element that handles the "click" event
+  removeButton.addEventListener("click", function () {
+    // Inside the callback function, find the button's parent element using DOM Traversal (hint: parentNode property) and store it in a variable named entry
+    const entry = removeButton.parentNode;
+
+    // Remove the entry element from the DOM (hint: remove method)
+    entry.remove();
+  });
+
+  // Append the removeButton to the newMessage element
+  newMessage.appendChild(removeButton);
+
+  //   Append the newMessage to the messageList element
+  messageList.appendChild(newMessage);
+
   // Inside the callback function, add a new line of code to clear the form
   messageForm.reset();
 });
