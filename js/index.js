@@ -44,7 +44,9 @@ for (let i = 0; i < skills.length; i++) {
 // Handle Message Form Submit
 // Using "DOM Selection", select the "leave_message" form by name attribute and store it in a variable named messageForm
 const messageForm = document.querySelector('form[name="leave_message"]');
-
+const messageSection = document.getElementById("messages");
+const messageList = messageSection.querySelector("ul");
+messageSection.style.display = "none";
 // Add an event listener to the messageForm element that handles the "submit" event
 messageForm.addEventListener("submit", function (event) {
   // Inside the callback function, add a new line to prevent the default refreshing behavior of the "submit" event
@@ -62,10 +64,10 @@ messageForm.addEventListener("submit", function (event) {
 
   // Display Messages in List
   // Using "DOM Selection", select the #messages section by id and store it in a variable named messageSection
-  const messageSection = document.getElementById("messages");
+  // const messageSection = document.getElementById("messages");
 
   // Using "DOM Selection", query the messageSection (instead of the entire document) to find the <ul> element and store it in a variable named messageList
-  const messageList = messageSection.querySelector("ul");
+  // const messageList = messageSection.querySelector("ul");
 
   // Create a new list item (li) element and store it in a variable named newMessage
   const newMessage = document.createElement("li");
@@ -95,8 +97,15 @@ messageForm.addEventListener("submit", function (event) {
 
     // Remove the entry element from the DOM (hint: remove method)
     entry.remove();
+    // Stretch Goals
+    // Hide the #messages section including its header when the list is empty
+    if (messageList.children.length === 0) {
+      messageSection.style.display = "none";
+    } else {
+      messageSection.style.display = "";
+    }
   });
-
+  messageSection.style.display = "";
   // Append the removeButton to the newMessage element
   newMessage.appendChild(removeButton);
 
