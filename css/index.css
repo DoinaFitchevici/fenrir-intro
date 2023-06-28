@@ -1,0 +1,139 @@
+/* Change the background color of the page body */
+body {
+  background-color: white;
+}
+
+/* Change the default text color */
+body {
+  color: black;
+}
+
+/* Define the font family for the entire page or just a section */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Add spacing (padding/margin) between sections */
+.about {
+  margin-bottom: 40px;
+}
+.experience {
+  margin-bottom: 40px;
+}
+.skills {
+  margin-bottom: 40px;
+}
+.connect {
+  margin-bottom: 40px;
+}
+.leave_a_message {
+  margin-bottom: 40px;
+}
+.messages {
+  margin-bottom: 40px;
+}
+
+/* Change the font size, weight, and color of all headings */
+h2,
+h4,
+h5 {
+  font-size: 24px;
+  font-weight: bold;
+  color: maroon;
+}
+
+/* Transform the "Experience" list items into styled blocks */
+.experience_list {
+  list-style: none;
+}
+.experience_list li {
+  display: block;
+  border: 1px solid linen;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: linen;
+}
+
+/* Transform the "Skills" list items into styled blocks */
+.skills_list {
+  list-style: none;
+}
+.skills_list li {
+  color: royalblue;
+  display: inline-block;
+  border: 1px solid royalblue;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* Style the "Leave a Message" form elements */
+/* Change font size and color of labels */
+label {
+  font-size: 16px;
+  color: black;
+  font-weight: lighter;
+}
+/* Change font size, padding, border, etc. of inputs and textarea */
+input,
+textarea {
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid navy;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+/* Add spacing (padding/margin) between form fields */
+.form_field {
+  margin-bottom: 20px;
+}
+/* Change padding, background color, border, etc. of submit button */
+button[type="submit"] {
+  text-align: center;
+  font-size: 16px;
+  width: 96px;
+  height: 48px;
+  padding: 16px 16px;
+  color: white;
+  border: 1px royalblue;
+  background-color: royalblue;
+  border-radius: 5px;
+}
+
+/* Transform the "Messages" list items into styled blocks and customize the remove button (and/or edit button if you have one) */
+.messages {
+  list-style: none;
+}
+.messages li {
+  color: royalblue;
+  display: inline-block;
+  border: 1px solid royalblue;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.remove_button {
+  text-align: center;
+  font-size: 16px;
+  width: 96px;
+  height: 48px;
+  padding: 16px 16px;
+  color: white;
+  border: 1px royalblue;
+  background-color: royalblue;
+  border-radius: 5px;
+}
+
+/* Change the spacing and background color of the footer */
+footer {
+  display: block;
+  border: 1px solid linen;
+  background-color: linen;
+  text-align: left;
+  color: black;
+  font-size: 16px;
+  font-weight: lighter;
+  padding: 16px 16px;
+}
