@@ -43,7 +43,7 @@ for (let i = 0; i < skills.length; i++) {
 
 // Handle Message Form Submit
 // Using "DOM Selection", select the "leave_message" form by name attribute and store it in a variable named messageForm
-const messageForm = document.getElementById("leave_message");
+const messageForm = document.querySelector('form[name="leave_message"]');
 const messageSection = document.getElementById("messages");
 const messageList = messageSection.querySelector("ul");
 messageSection.style.display = "none";
@@ -53,7 +53,9 @@ messageForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   // Inside the callback function for your event listener, create a new variable for each of the three form fields and retrieve the value from the event
-  const { usersName, usersEmail, usersMessage } = event.target;
+  const usersName = event.target.usersName.value;
+  const usersEmail = event.target.usersEmail.value;
+  const usersMessage = event.target.usersMessage.value;
 
   //   Inside the callback function for your event listener, add a console.log statement to log the three variables
   console.log("Name:", usersName);
@@ -81,7 +83,7 @@ messageForm.addEventListener("submit", function (event) {
 
   // Create a new <button> element and store it in a variable named removeButton
   const removeButton = document.createElement("button");
-
+  removeButton.classList.add("remove_button");
   // Set the inner text to "remove"
   removeButton.innerText = "remove";
 
