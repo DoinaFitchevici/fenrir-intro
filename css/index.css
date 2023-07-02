@@ -14,22 +14,7 @@ body {
 }
 
 /* Add spacing (padding/margin) between sections */
-.about {
-  margin-bottom: 40px;
-}
-.experience {
-  margin-bottom: 40px;
-}
-.skills {
-  margin-bottom: 40px;
-}
-.connect {
-  margin-bottom: 40px;
-}
-.leave_a_message {
-  margin-bottom: 40px;
-}
-.messages {
+.section {
   margin-bottom: 40px;
 }
 
