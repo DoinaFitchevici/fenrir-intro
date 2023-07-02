@@ -137,3 +137,10 @@ footer {
   font-weight: lighter;
   padding: 16px 16px;
 }
+
+/* Use CSS to change the style of your picture (ex. add a border to the picture, or round the edges of the photo, etc.) */
+.favorite_picture {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
