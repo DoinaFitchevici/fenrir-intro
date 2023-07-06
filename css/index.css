@@ -3,6 +3,9 @@ body {
   background-color: white;
 }
 
+body {
+  margin-top: 125px;
+}
 /* Change the default text color */
 body {
   color: black;
@@ -18,13 +21,23 @@ body {
   margin-bottom: 40px;
 }
 
+#about {
+  margin-top: 3rem;
+}
+
 /* Change the font size, weight, and color of all headings */
-h2,
-h4,
-h5 {
+h2 {
   font-size: 24px;
   font-weight: bold;
   color: maroon;
+}
+h5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+h6 {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Transform the "Experience" list items into styled blocks */
@@ -128,4 +141,94 @@ footer {
   border-radius: 50%;
   width: 60px;
   height: 60px;
+}
+
+/* Add a navigational header to your webpage */
+/* The navigation menu should include a link to each of your sections (i.e. "About", "Experience", etc.) */
+/* Make the header sticky/fixed on the page */
+
+header {
+  background-color: #f1e8e8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navBar {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+nav a {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+.menuItem {
+  font-size: 1.125rem;
+}
+li a {
+  display: block;
+  width: 150px;
+}
+
+/* Change the layout of your "Experience" section using rows and columns so items are displayed in a grid rather than a list */
+.experience-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.experience-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: left;
+}
+
+/* Update the "Leave a Message" form to use Flexbox or CSS Grid */
+.message-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.form-group {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.message-form button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Use Media Queries to make sure the webpage is responsive for all device sizes (mobile, tablet, desktop, etc.) */
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  header-left {
+    float: left;
+  }
+}
+
+/* Media query for tablet devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Media query for desktop devices */
+@media (min-width: 1024px) {
 }

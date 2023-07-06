@@ -8,19 +8,43 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <img src="images/headshotpic.jpeg" alt="Doina Fitchevici" class="favorite_picture">
+    <header>
+            <nav class="navBar">
+                <img src="images/headshotpic.jpeg" alt="Doina Fitchevici" class="favorite_picture">
+            <ul class="menu">
+                <li class="menuItem">
+                    <a href="#about">About</a>
+                </li>
+                <li class="menuItem">
+                    <a href="#experience">Experience</a>
+                </li>
+                <li class="menuItem">
+                    <a href="#skills">Skills</a>
+                </li>
+                <li class="menuItem">
+                    <a href="#connect">GitHub</a>
+                </li>
+                <li class="menuItem">
+                    <a href="#leave_a_message">Contact</a>
+                </li>
+            </ul>
+            </nav>
+    </header>
+    
     <main>
-        <section class="section">
+        <section id="about" class="section">
             <h2>About</h2>
             <p>
                 Hello and welcome to my portfolio website! My name is Doina Fitchevici, I am an aspiring front-end web developer, and also a mother of a two-year old boy. Besides enjoying being a mother, I am thrilled to embark on this journey to pursue my passion for web development and share my journey with you.
                 Although I may currently lack professional experience in the field, I have dedicated significant time and effort to learning and honing my skills as a front-end web developer.cd
             </p>
         </section>
-        <section class="section">    
+        <section id="experience" class="section">  
             <h2>Experience</h2>
-            <h4>Stay At Home Mom</h4>
-            <h5>Self-Employed</h5>
+            <div class="experience-container"> 
+            <div class="experience-item">
+            <h5>Stay At Home Mom</h5>
+            <h6>Self-Employed</h6>
             <p>2021 - present</p>
             <p>
                 <ul class="experience_list">
@@ -37,8 +61,10 @@
                 </ul>
                 </ul>
             </p>
-            <h4>Retail Manager</h4>
-            <h5>BeachMart.Inc</h5>
+            </div>
+            <div class="experience-item">
+            <h5>Retail Manager</h5>
+            <h6>BeachMart.Inc</h6>
             <p>2016 - 2021</p>
             <p>
                 <ul class="experience_list">
@@ -47,8 +73,10 @@
                     <li>Received merchandise, priced, and dislayed in the stores.</li>
                 </ul>
             </p>
-            <h4>Child Care Teacher</h4>
-            <h5>Junior Project</h5>
+            </div>
+            <div class="experience-item">
+            <h5>Child Care Teacher</h5>
+            <h6>Junior Project</h6>
             <p>2014-2015</p>
             <p>
                 <ul class="experience_list">
@@ -57,13 +85,15 @@
                     <li>Ensured compliance with teaching standards and safety regulations. </li>
                 </ul>
             </p>
+            </div>
+            </div> 
         </section>
         <!-- Add skills section -->
         <section class="section"  id="skills">
             <h2>Skills</h2>
             <ul class="skills_list"></ul>
         </section>
-        <section class="section">
+        <section id="connect" class="section">
             <h2>Connect</h2>
             <p>
                 <cite><a href="https://github.com/DoinaFitchevici">https://github.com/DoinaFitchevici</a></cite>
@@ -72,19 +102,21 @@
     </main>
 
     <!-- message-->
-    <section class="section">
+    <section id="leave_a_message" class="section">
         <h2>Leave a Message</h2>
-        <form class="form_field" name="leave_message">
-
-            <label>Name</label><br>
-            <input type="text" name="usersName" required="true"><br>
-
-            <label>Email Address</label><br>
-            <input type="email" name="usersEmail" required="true"><br>
-
-            <label>Message</label><br>
-            <textarea name="usersMessage" required="true"></textarea><br>
-
+        <form class="form_field" name="leave_message" class="message-form">
+            <div class="form-group">
+                <label>Name</label><br>
+                <input type="text" name="usersName" required="true"><br>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label><br>
+                <input type="email" name="usersEmail" required="true"><br>
+            </div>
+            <div class="form-group">
+                <label>Message</label><br>
+                <textarea name="usersMessage" required="true"></textarea><br>
+            </div>
             <button type="submit">Submit</button>
         </form>
     </section>
