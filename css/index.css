@@ -170,6 +170,9 @@ header {
   padding: 1rem;
 }
 
+#profileName {
+  font-size: 1.5rem;
+}
 /* Change the layout of your "Experience" section using rows and columns so items are displayed in a grid rather than a list */
 .experience-container {
   display: grid;
