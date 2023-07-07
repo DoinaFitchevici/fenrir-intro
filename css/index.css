@@ -17,12 +17,13 @@ body {
 }
 
 /* Add spacing (padding/margin) between sections */
-.section {
+section {
   margin-bottom: 40px;
 }
 
 #about {
-  margin-top: 3rem;
+  margin-top: 30px;
+  visibility: hidden;
 }
 
 /* Change the font size, weight, and color of all headings */
@@ -143,6 +144,12 @@ footer {
   height: 60px;
 }
 
+#profile_picture {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
 /* Add a navigational header to your webpage */
 /* The navigation menu should include a link to each of your sections (i.e. "About", "Experience", etc.) */
 /* Make the header sticky/fixed on the page */
@@ -156,27 +163,21 @@ header {
 }
 
 .navBar {
-  display: inline-flex;
-  flex-wrap: wrap;
-}
-
-nav a {
-  align-items: center;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .menu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 .menuItem {
   font-size: 1.125rem;
-}
-li a {
-  display: block;
-  width: 150px;
+  padding: 1rem;
 }
 
 /* Change the layout of your "Experience" section using rows and columns so items are displayed in a grid rather than a list */
@@ -222,6 +223,11 @@ li a {
   }
   header-left {
     float: left;
+  }
+  .experience-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
 }
 
