@@ -170,9 +170,6 @@ header {
   padding: 1rem;
 }
 
-#profileName {
-  font-size: 1.5rem;
-}
 /* Change the layout of your "Experience" section using rows and columns so items are displayed in a grid rather than a list */
 .experience-container {
   display: grid;
@@ -204,6 +201,17 @@ header {
   padding: 10px 15px;
   border: none;
   cursor: pointer;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #574d4d;
+}
+
+#profileName {
+  font-size: 1.5rem;
+  color: #574d4d;
 }
 
 /* Use Media Queries to make sure the webpage is responsive for all device sizes (mobile, tablet, desktop, etc.) */
