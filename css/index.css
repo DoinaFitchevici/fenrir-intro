@@ -1,28 +1,18 @@
 /* Change the background color of the page body */
 body {
   background-color: white;
-}
-
-body {
-  margin-top: 125px;
-}
-/* Change the default text color */
-body {
   color: black;
-}
-
-/* Define the font family for the entire page or just a section */
-body {
   font-family: Arial, sans-serif;
 }
 
 /* Add spacing (padding/margin) between sections */
 section {
-  margin-bottom: 40px;
+  padding-top: 40px;
 }
 
-#about {
-  margin-top: 30px;
+#about,
+#experience,
+#skill {
   visibility: hidden;
 }
 
