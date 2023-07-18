@@ -134,3 +134,8 @@ messageForm.addEventListener("submit", function (event) {
   // Inside the callback function, add a new line of code to clear the form
   messageForm.reset();
 });
+
+// Fetch GitHub Repositories
+var githubRequest = new XMLHttpRequest();
+githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
+githubRequest.send();
