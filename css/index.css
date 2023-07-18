@@ -104,16 +104,17 @@ button[type="submit"] {
   margin-right: 10px;
   border-radius: 5px;
 }
-.remove_button {
+.remove_button,
+.edit_button {
   text-align: center;
-  font-size: 16px;
-  width: 96px;
-  height: 48px;
-  padding: 16px 16px;
+  font-size: 18px;
+  width: 72px;
+  height: 42px;
   color: white;
   border: 1px royalblue;
   background-color: royalblue;
   border-radius: 5px;
+  margin-right: 10px;
 }
 
 /* Change the spacing and background color of the footer */
@@ -148,7 +149,6 @@ footer {
 header {
   background-color: #f1e8e8;
   position: sticky;
-
   top: 0;
   left: 0;
   width: 100%;
@@ -229,5 +229,12 @@ header {
   }
   html {
     scroll-padding-top: 13rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experience-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
 }
