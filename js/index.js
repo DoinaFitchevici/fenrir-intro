@@ -136,14 +136,23 @@ messageForm.addEventListener("submit", function (event) {
 });
 
 // Fetch GitHub Repositories
-var githubRequest = new XMLHttpRequest();
+const githubRequest = new XMLHttpRequest();
 
 githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
 githubRequest.send();
 
 // Handle Response from Server
 
-githubRequest.addEventListener("load", function () {
+githubRequest.addEventListener("load", (event) => {
   const repositories = JSON.parse(githubRequest.response);
   console.log(repositories);
+
+  // Display Repositories in List
+  const projectSection = document.getElementById("projects");
+  const projectList = projectSection.querySelector("ul");
+  for (let i = 0; i < repositories.length; i++) {
+    const project = document.createElement("li");
+    project.innerText = repositories[i].name;
+    projectList.appendChild(project);
+  }
 });
