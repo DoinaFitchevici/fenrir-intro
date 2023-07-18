@@ -81,6 +81,28 @@ messageForm.addEventListener("submit", function (event) {
   <span>wrote: ${usersMessage}</span>
   `;
 
+  // Create a new <button> element and store it in a variable named editButton
+  // Append the editButton to the newMessage element
+  const editButton = document.createElement("button");
+  editButton.classList.add("edit_button");
+  // Set the inner text to "edit"
+  editButton.innerText = "edit";
+  // Set the type attribute to "button"
+  editButton.type = "button";
+  // Add an event listener to the editButton element that handles the "click" event
+  editButton.addEventListener("click", function () {
+    const new_message_text = prompt("Enter the new message:");
+    if (new_message_text !== null) {
+      const message_span = newMessage.querySelector("span");
+      message_span.textContent = new_message_text;
+    }
+  });
+  // Append the editButton to the newMessage element
+  newMessage.appendChild(editButton);
+
+  //   Append the newMessage to the messageList element
+  messageList.appendChild(newMessage);
+
   // Create a new <button> element and store it in a variable named removeButton
   const removeButton = document.createElement("button");
   removeButton.classList.add("remove_button");
@@ -108,9 +130,6 @@ messageForm.addEventListener("submit", function (event) {
   messageSection.style.display = "";
   // Append the removeButton to the newMessage element
   newMessage.appendChild(removeButton);
-
-  //   Append the newMessage to the messageList element
-  messageList.appendChild(newMessage);
 
   // Inside the callback function, add a new line of code to clear the form
   messageForm.reset();
