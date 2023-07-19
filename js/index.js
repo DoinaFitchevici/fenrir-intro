@@ -152,7 +152,27 @@ githubRequest.addEventListener("load", (event) => {
   const projectList = projectSection.querySelector("ul");
   for (let i = 0; i < repositories.length; i++) {
     const project = document.createElement("li");
-    project.innerText = repositories[i].name;
+
+    // Transform your repository names into <a> tags that link to GitHub
+    const link = document.createElement("a");
+    link.href = repositories[i].html_url;
+    link.innerText = repositories[i].name;
+    project.appendChild(link);
+
+    // Display additional information about your repositories (i.e. description, date, etc.)
+    const repositoryDescription = document.createElement("p");
+    repositoryDescription.textContent = repositories[i].description;
+    project.appendChild(repositoryDescription);
+
+    const repositoryDate = document.createElement("p");
+    const createdAt = new Date(repositories[i].created_at);
+    const formattedDate = createdAt.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    repositoryDate.textContent = "Created at: " + formattedDate;
+    project.appendChild(repositoryDate);
     projectList.appendChild(project);
   }
 });
