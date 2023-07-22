@@ -134,3 +134,45 @@ messageForm.addEventListener("submit", function (event) {
   // Inside the callback function, add a new line of code to clear the form
   messageForm.reset();
 });
+
+// Fetch GitHub Repositories
+const githubRequest = new XMLHttpRequest();
+
+githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
+
+// Handle Response from Server
+
+githubRequest.addEventListener("load", (event) => {
+  const repositories = JSON.parse(githubRequest.response);
+  console.log(repositories);
+
+  // Display Repositories in List
+  const projectSection = document.getElementById("projects");
+  const projectList = projectSection.querySelector("ul");
+  for (let i = 0; i < repositories.length; i++) {
+    const project = document.createElement("li");
+
+    // Transform your repository names into <a> tags that link to GitHub
+    const link = document.createElement("a");
+    link.href = repositories[i].html_url;
+    link.innerText = repositories[i].name;
+    project.appendChild(link);
+
+    // Display additional information about your repositories (i.e. description, date, etc.)
+    const repositoryDescription = document.createElement("p");
+    repositoryDescription.textContent = repositories[i].description;
+    project.appendChild(repositoryDescription);
+
+    const repositoryDate = document.createElement("p");
+    const createdAt = new Date(repositories[i].created_at);
+    const formattedDate = createdAt.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    repositoryDate.textContent = "Created at: " + formattedDate;
+    project.appendChild(repositoryDate);
+    projectList.appendChild(project);
+  }
+});
+githubRequest.send();

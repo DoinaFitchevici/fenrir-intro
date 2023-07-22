@@ -238,3 +238,24 @@ header {
     grid-gap: 20px;
   }
 }
+
+/* Customize the styling of your "Projects" section list */
+#projects {
+  font-family: Arial, sans-serif;
+}
+#projects ul {
+  list-style-type: none;
+  padding: 0;
+}
+#projects li {
+  margin-bottom: 10px;
+}
+#projects li a {
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: bold;
+}
+#projects li p {
+  margin-top: 5px;
+  font-size: 14px;
+}
