@@ -139,7 +139,6 @@ messageForm.addEventListener("submit", function (event) {
 const githubRequest = new XMLHttpRequest();
 
 githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
-githubRequest.send();
 
 // Handle Response from Server
 
@@ -176,3 +175,4 @@ githubRequest.addEventListener("load", (event) => {
     projectList.appendChild(project);
   }
 });
+githubRequest.send();
