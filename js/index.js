@@ -135,83 +135,45 @@ messageForm.addEventListener("submit", function (event) {
   messageForm.reset();
 });
 
-// Fetch GitHub Repositories
-// const githubRequest = new XMLHttpRequest();
-
-// githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
-
-// // Handle Response from Server
-
-// githubRequest.addEventListener("load", (event) => {
-//   const repositories = JSON.parse(githubRequest.response);
-//   console.log(repositories);
-
-//   // Display Repositories in List
-//   const projectSection = document.getElementById("projects");
-//   const projectList = projectSection.querySelector("ul");
-//   for (let i = 0; i < repositories.length; i++) {
-//     const project = document.createElement("li");
-
-//     // Transform your repository names into <a> tags that link to GitHub
-//     const link = document.createElement("a");
-//     link.href = repositories[i].html_url;
-//     link.innerText = repositories[i].name;
-//     project.appendChild(link);
-
-//     // Display additional information about your repositories (i.e. description, date, etc.)
-//     const repositoryDescription = document.createElement("p");
-//     repositoryDescription.textContent = repositories[i].description;
-//     project.appendChild(repositoryDescription);
-
-//     const repositoryDate = document.createElement("p");
-//     const createdAt = new Date(repositories[i].created_at);
-//     const formattedDate = createdAt.toLocaleDateString(undefined, {
-//       year: "numeric",
-//       month: "long",
-//       day: "numeric",
-//     });
-//     repositoryDate.textContent = "Created at: " + formattedDate;
-//     project.appendChild(repositoryDate);
-//     projectList.appendChild(project);
-//   }
-// });
-// githubRequest.send();
-
 // Using the Fetch API, create a "GET" request to the same GitHub API url as before
-function fetchData(url) {
-  return fetch(url)
-    .then((response) => response.JSON())
-}
+//  hint: the fetch function
+//  hint: "GET" is the default method for fetch
+fetch("https://api.github.com/users/DoinaFitchevici/repos", {
+  method: "GET",
+})
+  // Chain a then method to your fetch call and pass it a function that returns the response JSON data
 
-fetchData("https://api.github.com/users/DoinaFitchevici/repos").then((data) =>
-  githubRequest(data)
-);
+  .then((response) => response.json())
+  // Chain another then method and pass it a function, inside of which you can paste the code from your previous "load" event listener function
 
-function githubRequest(data) {
-  const repositories = data;
-  console.log(repositories);
-  const projectSection = document.getElementById("projects");
-  const projectList = projectSection.querySelector("ul");
-  for (let i = 0; i < repositories.length; i++) {
-    const project = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = repositories[i].html_url;
-    link.innerHTML = repositories[i].name;
-    project.appendChild(link);
-    const repositoryDescription = document.createElement("p");
-    repositoryDescription.textContent = repositories[i].description;
-    project.appendChild(repositoryDescription);
+  .then((repositories) => {
+    const repoSection = document.getElementById("projects");
+    const repoList = repoSection.querySelector("ul");
+    for (let i = 0; i < repositories.length; i++) {
+      // console.log(repositories[i]);
+      const repository = document.createElement("li");
+      // repository.innerText = repositories[i].name;
+      let repositoryContent = `
+            <p><a href='${repositories[i].html_url}' target="_blank">${
+        repositories[i].name
+      }</a></p>
+            ${
+              repositories[i].description
+                ? `<p>${repositories[i].description}</p>`
+                : ""
+            }
+            <p>Created at: ${new Date(
+              repositories[i].created_at
+            ).toLocaleDateString()}</p>
+        `;
 
-    const repositoryDate = document.createElement("p");
-    const createdAt = new Date(repositories[i].created_at);
-    const formattedDate = createdAt.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      repositoryDate.textContent = "Created at: " + formattedDate;
-      project.appendChild(repositoryDate);
-      projectList.appendChild(project);
-    })
-  }
-}
-.catch((error) => console.log("Looks like there was a problem!", error));
+      if (repositories[i].homepage) {
+        repositoryContent += `<p>Deployment Link: <a href='${repositories[i].homepage}' target="_blank">${repositories[i].homepage}</a></p>`;
+      }
+
+      repository.innerHTML = repositoryContent + "<br>";
+      repoList.appendChild(repository);
+    }
+  })
+  // Chain a catch() function to your fetch call to handle errors from the server
+  .catch((error) => console.error("Error fetching data:", error));
