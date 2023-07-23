@@ -45,10 +45,10 @@ h6 {
 }
 
 /* Transform the "Skills" list items into styled blocks */
-.skills_list {
+.skillsList {
   list-style: none;
 }
-.skills_list li {
+.skillsList li {
   color: royalblue;
   display: inline-block;
   border: 1px solid royalblue;

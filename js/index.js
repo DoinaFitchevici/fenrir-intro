@@ -64,10 +64,10 @@ messageForm.addEventListener("submit", function (event) {
 
   // Display Messages in List
   // Using "DOM Selection", select the #messages section by id and store it in a variable named messageSection
-  // const messageSection = document.getElementById("messages");
+  const messageSection = document.getElementById("messages");
 
   // Using "DOM Selection", query the messageSection (instead of the entire document) to find the <ul> element and store it in a variable named messageList
-  // const messageList = messageSection.querySelector("ul");
+  const messageList = messageSection.querySelector("ul");
 
   // Create a new list item (li) element and store it in a variable named newMessage
   const newMessage = document.createElement("li");
@@ -136,29 +136,68 @@ messageForm.addEventListener("submit", function (event) {
 });
 
 // Fetch GitHub Repositories
-const githubRequest = new XMLHttpRequest();
+// const githubRequest = new XMLHttpRequest();
 
-githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
+// githubRequest.open("GET", "https://api.github.com/users/DoinaFitchevici/repos");
 
-// Handle Response from Server
+// // Handle Response from Server
 
-githubRequest.addEventListener("load", (event) => {
-  const repositories = JSON.parse(githubRequest.response);
+// githubRequest.addEventListener("load", (event) => {
+//   const repositories = JSON.parse(githubRequest.response);
+//   console.log(repositories);
+
+//   // Display Repositories in List
+//   const projectSection = document.getElementById("projects");
+//   const projectList = projectSection.querySelector("ul");
+//   for (let i = 0; i < repositories.length; i++) {
+//     const project = document.createElement("li");
+
+//     // Transform your repository names into <a> tags that link to GitHub
+//     const link = document.createElement("a");
+//     link.href = repositories[i].html_url;
+//     link.innerText = repositories[i].name;
+//     project.appendChild(link);
+
+//     // Display additional information about your repositories (i.e. description, date, etc.)
+//     const repositoryDescription = document.createElement("p");
+//     repositoryDescription.textContent = repositories[i].description;
+//     project.appendChild(repositoryDescription);
+
+//     const repositoryDate = document.createElement("p");
+//     const createdAt = new Date(repositories[i].created_at);
+//     const formattedDate = createdAt.toLocaleDateString(undefined, {
+//       year: "numeric",
+//       month: "long",
+//       day: "numeric",
+//     });
+//     repositoryDate.textContent = "Created at: " + formattedDate;
+//     project.appendChild(repositoryDate);
+//     projectList.appendChild(project);
+//   }
+// });
+// githubRequest.send();
+
+// Using the Fetch API, create a "GET" request to the same GitHub API url as before
+function fetchData(url) {
+  return fetch(url)
+    .then((response) => response.JSON())
+}
+
+fetchData("https://api.github.com/users/DoinaFitchevici/repos").then((data) =>
+  githubRequest(data)
+);
+
+function githubRequest(data) {
+  const repositories = data;
   console.log(repositories);
-
-  // Display Repositories in List
   const projectSection = document.getElementById("projects");
   const projectList = projectSection.querySelector("ul");
   for (let i = 0; i < repositories.length; i++) {
     const project = document.createElement("li");
-
-    // Transform your repository names into <a> tags that link to GitHub
     const link = document.createElement("a");
     link.href = repositories[i].html_url;
-    link.innerText = repositories[i].name;
+    link.innerHTML = repositories[i].name;
     project.appendChild(link);
-
-    // Display additional information about your repositories (i.e. description, date, etc.)
     const repositoryDescription = document.createElement("p");
     repositoryDescription.textContent = repositories[i].description;
     project.appendChild(repositoryDescription);
@@ -169,10 +208,10 @@ githubRequest.addEventListener("load", (event) => {
       year: "numeric",
       month: "long",
       day: "numeric",
-    });
-    repositoryDate.textContent = "Created at: " + formattedDate;
-    project.appendChild(repositoryDate);
-    projectList.appendChild(project);
+      repositoryDate.textContent = "Created at: " + formattedDate;
+      project.appendChild(repositoryDate);
+      projectList.appendChild(project);
+    })
   }
-});
-githubRequest.send();
+}
+.catch((error) => console.log("Looks like there was a problem!", error));
