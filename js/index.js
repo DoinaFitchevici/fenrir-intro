@@ -149,6 +149,7 @@ fetch("https://api.github.com/users/DoinaFitchevici/repos", {
   .then((repositories) => {
     const repoSection = document.getElementById("projects");
     const repoList = repoSection.querySelector("ul");
+
     for (let i = 0; i < repositories.length; i++) {
       // console.log(repositories[i]);
       const repository = document.createElement("li");
@@ -167,11 +168,7 @@ fetch("https://api.github.com/users/DoinaFitchevici/repos", {
             ).toLocaleDateString()}</p>
         `;
 
-      if (repositories[i].homepage) {
-        repositoryContent += `<p>Deployment Link: <a href='${repositories[i].homepage}' target="_blank">${repositories[i].homepage}</a></p>`;
-      }
-
-      repository.innerHTML = repositoryContent + "<br>";
+      repository.innerHTML = repositoryContent;
       repoList.appendChild(repository);
     }
   })
