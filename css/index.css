@@ -136,6 +136,10 @@ footer {
   height: 60px;
 }
 
+.favorite_picture:hover {
+  transform: scale(1.9);
+}
+
 #profile_picture {
   display: flex;
   align-items: center;
@@ -170,6 +174,10 @@ header {
 .menuItem {
   font-size: 1.125rem;
   padding: 1rem;
+}
+
+.navBar a:hover {
+  color: crimson;
 }
 
 /* Change the layout of your "Experience" section using rows and columns so items are displayed in a grid rather than a list */
@@ -239,6 +247,10 @@ header {
   }
 }
 
+#connect a:hover {
+  color: crimson;
+}
+
 /* Customize the styling of your "Projects" section list */
 #projects {
   font-family: Arial, sans-serif;
@@ -254,6 +266,9 @@ header {
   color: #0366d6;
   text-decoration: none;
   font-weight: bold;
+}
+#projects li a:hover {
+  color: crimson;
 }
 #projects li p {
   margin-top: 5px;

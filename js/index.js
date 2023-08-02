@@ -155,7 +155,7 @@ fetch("https://api.github.com/users/DoinaFitchevici/repos", {
       const repository = document.createElement("li");
       // repository.innerText = repositories[i].name;
       let repositoryContent = `
-            <p><a href='${repositories[i].html_url}' target="_blank">${
+        <p><a href='${repositories[i].html_url}' target="_blank">${
         repositories[i].name
       }</a></p>
             ${
