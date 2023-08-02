@@ -149,24 +149,22 @@ fetch("https://api.github.com/users/DoinaFitchevici/repos", {
   .then((repositories) => {
     const repoSection = document.getElementById("projects");
     const repoList = repoSection.querySelector("ul");
-
     for (let i = 0; i < repositories.length; i++) {
       // console.log(repositories[i]);
       const repository = document.createElement("li");
       // repository.innerText = repositories[i].name;
       let repositoryContent = `
-        <p><a href='${repositories[i].html_url}' target="_blank">${
+      <p><a href='${repositories[i].html_url}' target="_blank">${
         repositories[i].name
       }</a></p>
-            ${
-              repositories[i].description
-                ? `<p>${repositories[i].description}</p>`
-                : ""
-            }
-            <p>Created at: ${new Date(
-              repositories[i].created_at
-            ).toLocaleDateString()}</p>
-        `;
+      ${
+        repositories[i].description
+          ? `<p>${repositories[i].description}</p>`
+          : ""
+      }
+      <p>Created at: ${new Date(
+        repositories[i].created_at
+      ).toLocaleDateString()}</p>`;
 
       repository.innerHTML = repositoryContent;
       repoList.appendChild(repository);
