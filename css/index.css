@@ -247,8 +247,10 @@ header {
   }
 }
 
-#connect a:hover {
-  color: crimson;
+.linkedin_icon:hover,
+.github_icon:hover {
+  transform: scale(1.2);
+  margin-right: 10px;
 }
 
 /* Customize the styling of your "Projects" section list */
